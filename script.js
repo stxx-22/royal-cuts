@@ -1,27 +1,70 @@
 
 const CONFIG = {
-  whatsapp: "", // Número con indicativo, sin + ni espacios
-  instagram: "", // Usuario de Instagram, sin @
-  direccion: "" // Dirección del negocio
+  nombre: "Royal Cuts",
+  whatsapp: "", // Número con indicativo, solo números. Ej: 573001234567
+  direccion: "", // Ej: Calle 30 # 20-15, Barranquilla
+  dias: "Lunes a sábado",
+  horario: "", // Ej: 9:00 a. m. - 8:00 p. m.
+  instagram: "" // Usuario sin @. Ej: royalcuts
 };
 
 const whatsappButton = document.querySelector("#whatsapp-button");
 const bookingNote = document.querySelector("#booking-note");
+const year = document.querySelector("#year");
 
-document.querySelector("#year").textContent = new Date().getFullYear();
+year.textContent = new Date().getFullYear();
+document.title = `${CONFIG.nombre} | Barbería Premium`;
 
-function abrirWhatsApp(mensaje) {
+const addressText = document.querySelector("#address-text");
+const mapsLink = document.querySelector("#maps-link");
+const businessDays = document.querySelector("#business-days");
+const businessHours = document.querySelector("#business-hours");
+const instagramLink = document.querySelector("#instagram-link");
+
+// Mostrar la dirección
+if (CONFIG.direccion.trim()) {
+  addressText.textContent = CONFIG.direccion;
+  mapsLink.href =
+    `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(CONFIG.direccion)}`;
+  mapsLink.target = "_blank";
+  mapsLink.rel = "noopener noreferrer";
+} else {
+  addressText.textContent = "Dirección por configurar";
+  mapsLink.hidden = true;
+}
+
+// Mostrar los horarios
+businessDays.textContent = CONFIG.dias;
+businessHours.textContent = CONFIG.horario || "Horario por configurar";
+
+// Configurar Instagram
+const usuarioInstagram = CONFIG.instagram.replace(/^@/, "").trim();
+
+if (usuarioInstagram) {
+  instagramLink.href = `https://www.instagram.com/${usuarioInstagram}/`;
+  instagramLink.target = "_blank";
+  instagramLink.rel = "noopener noreferrer";
+} else {
+  instagramLink.hidden = true;
+}
+
+// Configurar reservas por WhatsApp
+whatsappButton.addEventListener("click", (event) => {
+  event.preventDefault();
+
   if (!/^\d{10,15}$/.test(CONFIG.whatsapp)) {
     bookingNote.textContent =
-      "El negocio debe configurar su número de WhatsApp.";
+      "Esta plantilla necesita un número de WhatsApp válido para recibir reservas.";
     return;
   }
 
-  const url = `https://wa.me/${CONFIG.whatsapp}?text=${encodeURIComponent(mensaje)}`;
-  window.open(url, "_blank", "noopener,noreferrer");
-}
+  const mensaje = encodeURIComponent(
+    `Hola, quisiera reservar una cita en ${CONFIG.nombre}.`
+  );
 
-whatsappButton.addEventListener("click", (event) => {
-  event.preventDefault();
-  abrirWhatsApp("Hola, quisiera reservar una cita en Royal Cuts.");
+  window.open(
+    `https://wa.me/${CONFIG.whatsapp}?text=${mensaje}`,
+    "_blank",
+    "noopener,noreferrer"
+  );
 });
