@@ -1,0 +1,410 @@
+
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap');
+
+:root {
+  --bg: #10100f;
+  --panel: #191917;
+  --gold: #d6ad68;
+  --text: #f5f0e8;
+  --muted: #aaa69e;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 90px;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'DM Sans', sans-serif;
+  line-height: 1.6;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.navbar {
+  min-height: 82px;
+  padding: 20px 8%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 24px;
+  border-bottom: 1px solid #ffffff12;
+}
+
+.logo {
+  font-size: 22px;
+  font-weight: 700;
+  letter-spacing: 2px;
+}
+
+.logo span,
+h1 span,
+h2 span {
+  color: var(--gold);
+}
+
+nav {
+  display: flex;
+  gap: 25px;
+}
+
+nav a {
+  color: var(--muted);
+  font-size: 13px;
+  transition: color .2s;
+}
+
+nav a:hover {
+  color: var(--gold);
+}
+
+.nav-button,
+.button {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  padding: 13px 22px;
+  font-size: 13px;
+  font-weight: 700;
+  transition: transform .2s, background .2s;
+}
+
+.nav-button,
+.button-gold {
+  background: var(--gold);
+  color: #15130f;
+}
+
+.button:hover,
+.nav-button:hover {
+  transform: translateY(-2px);
+}
+
+.hero {
+  min-height: 570px;
+  padding: 75px 8%;
+  display: grid;
+  grid-template-columns: 1fr 0.85fr;
+  align-items: center;
+  gap: 55px;
+}
+
+.eyebrow {
+  color: var(--gold);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 3px;
+  margin-bottom: 20px;
+}
+
+h1,
+h2 {
+  font-family: 'Playfair Display', serif;
+  font-weight: 500;
+  line-height: 1.15;
+}
+
+h1 {
+  font-size: clamp(48px, 6vw, 76px);
+}
+
+.hero-text {
+  color: var(--muted);
+  max-width: 420px;
+  margin: 25px 0;
+}
+
+.hero-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.button-outline {
+  border: 1px solid #ffffff40;
+}
+
+.button-outline:hover {
+  background: #ffffff12;
+}
+
+.hero-info {
+  display: flex;
+  gap: 42px;
+  margin-top: 42px;
+}
+
+.hero-info div {
+  display: flex;
+  flex-direction: column;
+}
+
+.hero-info strong {
+  font-size: 20px;
+  color: var(--gold);
+}
+
+.hero-info small {
+  color: var(--muted);
+  font-size: 11px;
+}
+
+.hero-image {
+  min-height: 390px;
+  position: relative;
+  display: flex;
+  align-items: end;
+  padding: 28px;
+  background:
+    linear-gradient(0deg, #000c, transparent 65%),
+url('https://images.unsplash.com/photo-1503951914875-452162b0f3f1?auto=format&fit=crop&w=1000&q=85');  background-size: cover;
+  background-position: center;
+  background-color: #30251c;
+  border: 1px solid #d6ad6840;
+}
+
+.image-caption span {
+  color: var(--gold);
+  font-size: 11px;
+  letter-spacing: 2px;
+}
+
+.image-caption p {
+  font-family: 'Playfair Display', serif;
+  font-size: 23px;
+  margin-top: 6px;
+}
+
+.section {
+  padding: 85px 8%;
+}
+
+.services {
+  background: #151513;
+}
+
+.section-heading {
+  text-align: center;
+  margin-bottom: 45px;
+}
+
+h2 {
+  font-size: clamp(34px, 4vw, 48px);
+}
+
+.section-heading > p:last-child,
+.booking > p:not(.eyebrow):not(.booking-note) {
+  color: var(--muted);
+  margin-top: 14px;
+}
+
+.service-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.service-card {
+  background: var(--panel);
+  border: 1px solid #ffffff14;
+  padding: 30px;
+  transition: transform .2s, border-color .2s;
+}
+
+.service-card:hover {
+  transform: translateY(-5px);
+  border-color: var(--gold);
+}
+
+.service-card.featured {
+  border-color: var(--gold);
+}
+
+.service-number {
+  color: var(--gold);
+  font-size: 12px;
+  letter-spacing: 2px;
+}
+
+.service-card h3 {
+  margin: 25px 0 10px;
+  font-family: 'Playfair Display', serif;
+  font-size: 23px;
+}
+
+.service-card p {
+  color: var(--muted);
+  font-size: 13px;
+  min-height: 65px;
+}
+
+.price {
+  border-top: 1px solid #ffffff20;
+  padding-top: 20px;
+  margin-top: 20px;
+  color: var(--gold);
+  font-size: 24px;
+  font-weight: 700;
+}
+
+.price small {
+  font-size: 11px;
+}
+
+.about {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: center;
+}
+
+.about > p {
+  color: var(--muted);
+  max-width: 470px;
+}
+
+.booking {
+  text-align: center;
+  background: #191917;
+}
+
+.booking .button {
+  margin-top: 28px;
+}
+
+.booking-note {
+  color: var(--muted);
+  font-size: 12px;
+  margin-top: 15px;
+}
+
+footer {
+  padding: 35px 8%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 20px;
+  border-top: 1px solid #ffffff15;
+}
+
+footer p,
+footer small {
+  color: var(--muted);
+  font-size: 12px;
+}
+
+@media (max-width: 850px) {
+  .navbar {
+    flex-wrap: wrap;
+  }
+
+  nav {
+    order: 3;
+    width: 100%;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .hero {
+    grid-template-columns: 1fr;
+    gap: 35px;
+  }
+
+  .hero-image {
+    min-height: 320px;
+  }
+
+  .service-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .about {
+    grid-template-columns: 1fr;
+    gap: 25px;
+  }
+}
+
+@media (max-width: 480px) {
+  .navbar,
+  .hero,
+  .section {
+    padding-left: 6%;
+    padding-right: 6%;
+  }
+
+  .nav-button {
+    padding: 10px 12px;
+    font-size: 11px;
+  }
+
+  nav {
+    gap: 15px;
+  }
+
+  .hero-info {
+    gap: 22px;
+  }
+
+  footer {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+.contact-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 20px;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.contact-card {
+  background: var(--panel);
+  border: 1px solid #ffffff20;
+  padding: 28px;
+  transition: border-color .2s, transform .2s;
+}
+
+.contact-card:hover {
+  border-color: var(--gold);
+  transform: translateY(-4px);
+}
+
+.contact-card h3 {
+  color: var(--gold);
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+.contact-card p {
+  color: var(--muted);
+  margin-bottom: 8px;
+}
+
+.contact-link {
+  display: inline-block;
+  margin-top: 12px;
+  color: var(--gold);
+  font-size: 13px;
+  font-weight: 700;
+}
+
+@media (max-width: 600px) {
+  .contact-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
