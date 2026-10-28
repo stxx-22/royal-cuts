@@ -1,31 +1,34 @@
-
+// CONFIGURACIÓN DEL NEGOCIO: completa estos datos antes de publicar para un cliente real.
 const CONFIG = {
   nombre: "Royal Cuts",
-  whatsapp: "", // Número con indicativo, solo números. Ej: 573001234567
-  direccion: "", // Ej: Calle 30 # 20-15, Barranquilla
+  whatsapp: "", // Formato internacional, solo números. Ejemplo Colombia: 573001234567
+  direccion: "",
   dias: "Lunes a sábado",
-  horario: "", // Ej: 9:00 a. m. - 8:00 p. m.
-  instagram: "" // Usuario sin @. Ej: royalcuts
+  horario: "",
+  instagram: "" // Usuario sin @
 };
 
-const whatsappButton = document.querySelector("#whatsapp-button");
-const bookingNote = document.querySelector("#booking-note");
-const year = document.querySelector("#year");
+const $ = (selector) => document.querySelector(selector);
+const year = $("#year");
+const whatsappButton = $("#whatsapp-button");
+const bookingNote = $("#booking-note");
+const addressText = $("#address-text");
+const mapsLink = $("#maps-link");
+const businessDays = $("#business-days");
+const businessHours = $("#business-hours");
+const instagramLink = $("#instagram-link");
+const menuToggle = $("#menu-toggle");
+const mainNav = $("#main-nav");
 
-year.textContent = new Date().getFullYear();
-document.title = `${CONFIG.nombre} | Barbería Premium`;
+if (year) year.textContent = new Date().getFullYear();
+document.title = `${CONFIG.nombre} — The Art of Grooming`;
 
-const addressText = document.querySelector("#address-text");
-const mapsLink = document.querySelector("#maps-link");
-const businessDays = document.querySelector("#business-days");
-const businessHours = document.querySelector("#business-hours");
-const instagramLink = document.querySelector("#instagram-link");
+if (businessDays) businessDays.textContent = CONFIG.dias;
+if (businessHours) businessHours.textContent = CONFIG.horario || "Horario por configurar";
 
-// Mostrar la dirección
 if (CONFIG.direccion.trim()) {
   addressText.textContent = CONFIG.direccion;
-  mapsLink.href =
-    `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(CONFIG.direccion)}`;
+  mapsLink.href = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(CONFIG.direccion)}`;
   mapsLink.target = "_blank";
   mapsLink.rel = "noopener noreferrer";
 } else {
@@ -33,13 +36,7 @@ if (CONFIG.direccion.trim()) {
   mapsLink.hidden = true;
 }
 
-// Mostrar los horarios
-businessDays.textContent = CONFIG.dias;
-businessHours.textContent = CONFIG.horario || "Horario por configurar";
-
-// Configurar Instagram
 const usuarioInstagram = CONFIG.instagram.replace(/^@/, "").trim();
-
 if (usuarioInstagram) {
   instagramLink.href = `https://www.instagram.com/${usuarioInstagram}/`;
   instagramLink.target = "_blank";
@@ -48,23 +45,49 @@ if (usuarioInstagram) {
   instagramLink.hidden = true;
 }
 
-// Configurar reservas por WhatsApp
-whatsappButton.addEventListener("click", (event) => {
-  event.preventDefault();
+if (whatsappButton) {
+  whatsappButton.addEventListener("click", (event) => {
+    event.preventDefault();
+    if (!/^\d{10,15}$/.test(CONFIG.whatsapp)) {
+      bookingNote.textContent = "Demo de portafolio: configura el número de WhatsApp del negocio para activar las reservas.";
+      bookingNote.classList.add("booking-note-alert");
+      return;
+    }
+    const message = encodeURIComponent(`Hola, quisiera reservar una cita en ${CONFIG.nombre}.`);
+    window.open(`https://wa.me/${CONFIG.whatsapp}?text=${message}`, "_blank", "noopener,noreferrer");
+  });
+}
 
-  if (!/^\d{10,15}$/.test(CONFIG.whatsapp)) {
-    bookingNote.textContent =
-      "Esta plantilla necesita un número de WhatsApp válido para recibir reservas.";
-    return;
-  }
+// Menú móvil accesible.
+if (menuToggle && mainNav) {
+  menuToggle.addEventListener("click", () => {
+    const isOpen = mainNav.classList.toggle("is-open");
+    menuToggle.setAttribute("aria-expanded", String(isOpen));
+    menuToggle.setAttribute("aria-label", isOpen ? "Cerrar menú" : "Abrir menú");
+    document.body.classList.toggle("menu-open", isOpen);
+  });
+  mainNav.querySelectorAll("a").forEach((link) => {
+    link.addEventListener("click", () => {
+      mainNav.classList.remove("is-open");
+      menuToggle.setAttribute("aria-expanded", "false");
+      menuToggle.setAttribute("aria-label", "Abrir menú");
+      document.body.classList.remove("menu-open");
+    });
+  });
+}
 
-  const mensaje = encodeURIComponent(
-    `Hola, quisiera reservar una cita en ${CONFIG.nombre}.`
-  );
-
-  window.open(
-    `https://wa.me/${CONFIG.whatsapp}?text=${mensaje}`,
-    "_blank",
-    "noopener,noreferrer"
-  );
-});
+// Animaciones discretas al aparecer en pantalla; contenido visible si el navegador no lo soporta.
+const revealItems = document.querySelectorAll(".reveal");
+if ("IntersectionObserver" in window) {
+  const observer = new IntersectionObserver((entries, currentObserver) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("is-visible");
+        currentObserver.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.12 });
+  revealItems.forEach((item) => observer.observe(item));
+} else {
+  revealItems.forEach((item) => item.classList.add("is-visible"));
+}
