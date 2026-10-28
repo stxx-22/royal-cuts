@@ -1,180 +1,149 @@
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Royal Cuts: barbería, estilo y atención personalizada.">
-  <meta name="theme-color" content="#10100f">
-  <title>Royal Cuts | Barbería Premium</title>
+  <meta name="description" content="Royal Cuts — barbería premium. Cortes de precisión, fades y cuidado de barba con estilo propio.">
+  <meta name="theme-color" content="#0b0b0a">
+  <title>Royal Cuts — The Art of Grooming</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
+  <script src="script.js" defer></script>
 </head>
 <body>
+  <div class="announcement"><span class="status-dot"></span> DETALLES QUE MARCAN LA DIFERENCIA <span class="announcement-divider">/</span> ROYAL EXPERIENCE</div>
 
-  <header class="navbar">
-    <a href="#inicio" class="logo">ROYAL<span>CUTS.</span></a>
+  <header class="navbar" id="top">
+    <a href="#inicio" class="logo" aria-label="Royal Cuts, inicio">
+      <span class="logo-mark">R<span>C</span></span>
+      <span class="logo-type">ROYAL<span>CUTS</span><small>BARBER CLUB</small></span>
+    </a>
 
-    <nav>
-      <a href="#inicio">Inicio</a>
+    <button class="menu-toggle" id="menu-toggle" aria-label="Abrir menú" aria-expanded="false" aria-controls="main-nav">
+      <span></span><span></span>
+    </button>
+
+    <nav id="main-nav" aria-label="Navegación principal">
       <a href="#servicios">Servicios</a>
-      <a href="#nosotros">Nosotros</a>
+      <a href="#experiencia">Experiencia</a>
+      <a href="#galeria">Galería</a>
       <a href="#contacto">Contacto</a>
     </nav>
-
-    <a class="nav-button" href="#reservar">Reservar cita</a>
+    <a class="nav-button" href="#reservar">Reserva tu cita <span>↗</span></a>
   </header>
 
   <main>
     <section class="hero" id="inicio">
-      <div class="hero-content">
-        <p class="eyebrow">ESTILO · PRECISIÓN · ACTITUD</p>
-
-        <h1>Tu estilo.<br>Tu <span>identidad.</span></h1>
-
-        <p class="hero-text">
-          Más que un corte, una experiencia. Descubre el estilo
-          que habla por ti en cada detalle.
-        </p>
-
-        <div class="hero-buttons">
-          <a href="#reservar" class="button button-gold">
-            Reservar ahora
-          </a>
-          <a href="#servicios" class="button button-outline">
-            Ver servicios
-          </a>
+      <div class="hero-backdrop"></div>
+      <div class="hero-content reveal">
+        <p class="eyebrow"><span></span> BARBERÍA · ESTILO · ACTITUD</p>
+        <h1>No es solo un corte.<br>Es tu <em>firma.</em></h1>
+        <p class="hero-text">Diseñamos tu estilo con precisión, carácter y atención al detalle. Entra por un corte. Sal con otra actitud.</p>
+        <div class="hero-actions">
+          <a href="#reservar" class="button button-gold">Reserva tu experiencia <span>↗</span></a>
+          <a href="#servicios" class="text-link">Explorar servicios <span>↓</span></a>
         </div>
-
-        <div class="hero-info">
-          <div>
-            <strong>100%</strong>
-            <small>Estilo personalizado</small>
-          </div>
-          <div>
-            <strong>PRO</strong>
-            <small>Barberos profesionales</small>
-          </div>
+        <div class="hero-proof">
+          <div class="proof-icon">✦</div>
+          <div><strong>Tu estilo, a tu manera.</strong><small>Atención personalizada en cada visita.</small></div>
         </div>
       </div>
-
-      <div class="hero-image" role="img"
-           aria-label="Interior elegante de barbería">
-        <div class="image-caption">
-          <span>ROYAL EXPERIENCE</span>
-          <p>La diferencia está en los detalles.</p>
-        </div>
+      <div class="hero-visual reveal">
+        <div class="hero-photo"></div>
+        <div class="photo-frame"></div>
+        <div class="hero-stamp"><span>RC</span><small>EST. FOR<br>YOUR STYLE</small></div>
+        <div class="vertical-note">PRECISIÓN EN CADA DETALLE — 01 / 04</div>
+        <div class="hero-image-label"><span>01</span><div><strong>THE ROYAL CUT</strong><small>Grooming with character</small></div></div>
       </div>
+      <a href="#servicios" class="scroll-cue"><span></span> DESLIZA PARA DESCUBRIR</a>
+    </section>
+
+    <section class="ticker" aria-label="Servicios destacados">
+      <div class="ticker-track"><span>PRECISIÓN</span><b>✳</b><span>ESTILO PROPIO</span><b>✳</b><span>BUENAS VIBRAS</span><b>✳</b><span>ROYAL EXPERIENCE</span><b>✳</b><span>PRECISIÓN</span><b>✳</b><span>ESTILO PROPIO</span><b>✳</b><span>BUENAS VIBRAS</span><b>✳</b><span>ROYAL EXPERIENCE</span><b>✳</b></div>
     </section>
 
     <section class="services section" id="servicios">
-      <div class="section-heading">
-        <p class="eyebrow">LO QUE HACEMOS</p>
-        <h2>Servicios <span>premium</span></h2>
-        <p>Calidad y precisión en cada detalle.</p>
+      <div class="section-heading reveal">
+        <p class="eyebrow"><span></span> ELIGE TU ESTILO</p>
+        <h2>El detalle lo cambia <em>todo.</em></h2>
+        <p>Servicios pensados para que salgas impecable y te sientas aún mejor.</p>
       </div>
-
       <div class="service-grid">
-        <article class="service-card">
-          <span class="service-number">01</span>
-          <h3>Corte clásico</h3>
-          <p>Un estilo limpio, elegante y atemporal.</p>
-          <div class="price">$20.000 <small>COP</small></div>
+        <article class="service-card reveal">
+          <div class="service-top"><span class="service-number">01 / CLASSIC</span><span class="service-icon">✳</span></div>
+          <div class="service-image service-image-one" role="img" aria-label="Corte clásico de caballero"></div>
+          <div class="service-body"><h3>Corte clásico</h3><p>Limpio, versátil y atemporal. Un corte que siempre queda bien.</p><div class="service-bottom"><span class="price">$20.000 <small>COP</small></span><span class="service-time">30 MIN</span></div></div>
         </article>
+        <article class="service-card featured reveal">
+          <div class="featured-tag">EL FAVORITO</div>
+          <div class="service-top"><span class="service-number">02 / SIGNATURE</span><span class="service-icon">✦</span></div>
+          <div class="service-image service-image-two" role="img" aria-label="Corte fade moderno"></div>
+          <div class="service-body"><h3>Fade / Degradado</h3><p>Transiciones precisas, textura y acabado con carácter.</p><div class="service-bottom"><span class="price">$25.000 <small>COP</small></span><span class="service-time">40 MIN</span></div></div>
+        </article>
+        <article class="service-card reveal">
+          <div class="service-top"><span class="service-number">03 / GROOMING</span><span class="service-icon">✳</span></div>
+          <div class="service-image service-image-three" role="img" aria-label="Perfilado profesional de barba"></div>
+          <div class="service-body"><h3>Barba premium</h3><p>Perfilado definido y cuidado para completar tu imagen.</p><div class="service-bottom"><span class="price">$15.000 <small>COP</small></span><span class="service-time">20 MIN</span></div></div>
+        </article>
+      </div>
+      <p class="price-note">* Precios de demostración: personalízalos antes de publicar para un negocio real.</p>
+    </section>
 
-        <article class="service-card featured">
-          <span class="service-number">02</span>
-          <h3>Fade / Degradado</h3>
-          <p>Transiciones precisas y acabados modernos.</p>
-          <div class="price">$25.000 <small>COP</small></div>
-        </article>
-
-        <article class="service-card">
-          <span class="service-number">03</span>
-          <h3>Barba premium</h3>
-          <p>Perfilado y definición para completar tu estilo.</p>
-          <div class="price">$15.000 <small>COP</small></div>
-        </article>
+    <section class="manifesto section" id="experiencia">
+      <div class="manifesto-image reveal"><div class="manifesto-image-inner"></div><span class="image-index">ROYAL CLUB / 002</span></div>
+      <div class="manifesto-copy reveal">
+        <p class="eyebrow"><span></span> MÁS QUE UNA BARBERÍA</p>
+        <h2>Tu imagen habla.<br>Que diga <em>mucho.</em></h2>
+        <p class="manifesto-lead">Creemos que un buen corte no cambia quién eres. Hace que se note.</p>
+        <p class="manifesto-text">Combinamos técnica, creatividad y atención personalizada para encontrar el estilo que va contigo. Sin fórmulas. Sin cortes en serie. Solo detalles bien hechos.</p>
+        <div class="manifesto-signature"><span>RC.</span><small>CONFIDENCE LOOKS GOOD ON YOU.</small></div>
+        <a href="#reservar" class="button button-outline">Vive la experiencia <span>↗</span></a>
       </div>
     </section>
 
-    <section class="about section" id="nosotros">
-      <div>
-        <p class="eyebrow">NUESTRA FILOSOFÍA</p>
-        <h2>Tu imagen merece<br><span>lo mejor.</span></h2>
+    <section class="gallery section" id="galeria">
+      <div class="section-heading section-heading-row reveal">
+        <div><p class="eyebrow"><span></span> EL TRABAJO HABLA</p><h2>Fresh cuts.<br><em>Real style.</em></h2></div>
+        <p>Inspiración para tu próximo look. Encuentra el corte que conecta contigo.</p>
       </div>
-
-      <p>
-        En Royal Cuts combinamos técnica, creatividad y atención
-        personalizada para que salgas con confianza y un estilo
-        que realmente te represente.
-      </p>
+      <div class="gallery-grid">
+        <div class="gallery-item gallery-one reveal"><span>01 — FADE CULTURE</span></div>
+        <div class="gallery-item gallery-two reveal"><span>02 — CLEAN FINISH</span></div>
+        <div class="gallery-item gallery-three reveal"><span>03 — OWN YOUR STYLE</span></div>
+      </div>
+      <p class="price-note">Imágenes ilustrativas. Reemplázalas por fotografías propias del negocio para una versión final.</p>
     </section>
 
     <section class="booking section" id="reservar">
-      <p class="eyebrow">TU PRÓXIMO LOOK COMIENZA AQUÍ</p>
-      <h2>¿Listo para tu <span>mejor versión?</span></h2>
-      <p>Reserva tu cita y dale a tu estilo la atención que merece.</p>
-
-      <a href="#" class="button button-gold" id="whatsapp-button">
-        Reservar por WhatsApp
-      </a>
-
-      <p class="booking-note" id="booking-note">
-        Configura los datos del negocio para habilitar las reservas.
-      </p>
+      <div class="booking-orbit orbit-one"></div><div class="booking-orbit orbit-two"></div>
+      <div class="booking-content reveal">
+        <p class="eyebrow"><span></span> TU PRÓXIMO LOOK COMIENZA AQUÍ</p>
+        <h2>¿Listo para tu<br><em>mejor versión?</em></h2>
+        <p>Tu silla te espera. Escríbenos y encuentra el momento perfecto para tu próximo corte.</p>
+        <a href="#" class="button button-gold" id="whatsapp-button">Reservar por WhatsApp <span>↗</span></a>
+        <p class="booking-note" id="booking-note">Configura el WhatsApp del negocio para activar las reservas.</p>
+      </div>
+      <div class="booking-monogram">RC</div>
     </section>
 
     <section class="contact section" id="contacto">
-      <div class="section-heading">
-        <p class="eyebrow">HABLEMOS</p>
-        <h2>Visítanos o <span>contáctanos</span></h2>
-        <p>Estamos listos para ayudarte a encontrar tu próximo estilo.</p>
-      </div>
-
+      <div class="contact-heading reveal"><p class="eyebrow"><span></span> ENCUÉNTRANOS</p><h2>Hablemos de <em>estilo.</em></h2><p>Estamos listos para ayudarte a encontrar tu próximo look.</p></div>
       <div class="contact-grid">
-        <article class="contact-card">
-          <h3>WhatsApp</h3>
-          <p>Reserva tu cita de forma rápida y sencilla.</p>
-          <a class="contact-link" href="#reservar">
-            Reservar cita
-          </a>
-        </article>
-
-        <article class="contact-card">
-          <h3>Ubicación</h3>
-          <p id="address-text">Dirección por configurar</p>
-          <a class="contact-link" id="maps-link" href="#contacto">
-            Ver ubicación
-          </a>
-        </article>
-
-        <article class="contact-card">
-          <h3>Horario</h3>
-          <p id="business-days">Lunes a sábado</p>
-          <p id="business-hours">Horario por configurar</p>
-        </article>
-
-        <article class="contact-card">
-          <h3>Instagram</h3>
-          <p>Descubre nuestros cortes y trabajos.</p>
-          <a class="contact-link" id="instagram-link"
-             href="#contacto" target="_blank"
-             rel="noopener noreferrer">
-            Visitar Instagram
-          </a>
-        </article>
+        <article class="contact-card reveal"><span class="contact-symbol">↗</span><small>AGENDA</small><h3>WhatsApp</h3><p>Reserva tu cita de forma rápida y sencilla.</p><a class="contact-link" href="#reservar">Agendar cita <span>↗</span></a></article>
+        <article class="contact-card reveal"><span class="contact-symbol">⌖</span><small>VISÍTANOS</small><h3>Ubicación</h3><p id="address-text">Dirección por configurar</p><a class="contact-link" id="maps-link" href="#contacto">Ver en Maps <span>↗</span></a></article>
+        <article class="contact-card reveal"><span class="contact-symbol">◷</span><small>HORARIOS</small><h3>Cuando gustes</h3><p id="business-days">Lunes a sábado</p><p id="business-hours">Horario por configurar</p></article>
+        <article class="contact-card reveal"><span class="contact-symbol">◎</span><small>SÍGUENOS</small><h3>Instagram</h3><p>Descubre nuestros cortes y trabajos.</p><a class="contact-link" id="instagram-link" href="#contacto" target="_blank" rel="noopener noreferrer">Ver Instagram <span>↗</span></a></article>
       </div>
     </section>
   </main>
 
-  <footer>
-    <a href="#inicio" class="logo">ROYAL<span>CUTS.</span></a>
-    <p>Estilo que habla por ti.</p>
-    <small>
-      © <span id="year"></span> Royal Cuts. Plantilla demostrativa.
-    </small>
+  <footer class="footer">
+    <a href="#inicio" class="logo footer-logo"><span class="logo-mark">R<span>C</span></span><span class="logo-type">ROYAL<span>CUTS</span><small>BARBER CLUB</small></span></a>
+    <p>Own your style. Make it royal.</p>
+    <small>© <span id="year"></span> Royal Cuts. Sitio demostrativo creado para portafolio.</small>
+    <a href="#top" class="back-top" aria-label="Volver arriba">↑</a>
   </footer>
-
-  <script src="script.js"></script>
 </body>
 </html>
